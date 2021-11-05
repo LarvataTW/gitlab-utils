@@ -19,3 +19,7 @@ GITLAB_PRIVATE_TOKEN
 - Backup group variables
 - Add project variables
 - Add group variables
+
+## References
+
+- https://docs.gitlab.com/ee/api/project_level_variables.html
