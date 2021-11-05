@@ -1,0 +1,27 @@
+image: python:3
+
+stages:
+  - add
+  - update
+
+add_variables:
+  stage: add
+  variables:
+    GITLAB_BASE_URL: ""
+    GITLAB_PRIVATE_TOKEN: ""
+  script:
+    - pwd
+    - pip3 install -r requirements.txt
+    - read input
+    - do something
+
+update_variables:
+  stage: update
+  variables:
+    GITLAB_BASE_URL: ""
+    GITLAB_PRIVATE_TOKEN: ""
+  script:
+    - pwd
+    - pip3 install -r requirements.txt
+    - read input
+    - do something
