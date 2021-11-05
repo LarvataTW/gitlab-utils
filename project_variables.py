@@ -13,12 +13,19 @@ private_token = GITLAB_PRIVATE_TOKEN
 # read project id
 project_id = 0
 
-url = "{}/api/v4/projects/{}/variables".format(base_url, project_id)
-
 headers = requests.structures.CaseInsensitiveDict()
 headers["PRIVATE-TOKEN"] = private_token
 
+# Read
+url = "{}/api/v4/projects/{}/variables?sort_by_key&per_page=100000"
+resp = requests.get(url, headers=headers)
+# TODO
+# save to file?
+# export to somewhere?
+print(resp.status_code)
+
 # Add
+url = "{}/api/v4/projects/{}/variables".format(base_url, project_id)
 for e in data:
     data = {
         "key": e['key'],
