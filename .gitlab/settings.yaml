@@ -1,0 +1,33 @@
+---
+
+clean_up_image_tags:
+  purge: true
+  rotate: 7 days
+  mini: 3
+
+environments:
+
+  - name: "all"
+    protected: false
+    masked: false
+    variables:
+      - key1: value1
+      - key2: value2
+
+  - name: "production"
+    protected: false
+    masked: false
+    variables:
+      - key1: value1
+      - key2: value2
+      - key3: value3
+      - key4: value4
+
+  - name: "review/develop"
+    protected: false
+    masked: false
+    variables:
+      - key1: value1
+      - key2: value2
+      - key3: value3
+      - key4: value4
