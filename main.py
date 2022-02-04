@@ -1,5 +1,28 @@
 #!/usr/bin/env python
 
+import gitlab
+import os
+
+gitlab_url=''
+gitlab_private_token = ''
+gitlab_project_id = 424
+
+gl = gitlab.Gitlab(gitlab_url, private_token=gitlab_private_token)
+gl.auth()
+
+project = gl.projects.get(gitlab_project_id)
+
+if not project.variables.get('TEST', filter={'environment_scope': '*'}):
+    project.variables.create({
+        'key': 'TEST',
+        'value': 'zx1986',
+        'environment_scope': '*',
+        'protected': 'false',
+        'marked': 'false'
+    })
+
+project.variables.list()
+
 if __name__ == "__main__":
     # 從 ENV 取得 Gitlab Project 參數與授權
     # 讀取 yaml 檔案載入要設定的環境變數
