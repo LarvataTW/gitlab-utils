@@ -5,9 +5,29 @@ clean_up_image_tags:
   rotate: 7 days
   mini: 3
 
+variables:
+
+  - key: key1
+    value: value1
+    protected: false
+    masked: false
+    environment_scope: "*"
+
+  - key: key2
+    value: value2
+    protected: false
+    masked: false
+    environment_scope: "*"
+
+  - key: key1
+    value: value1
+    protected: false
+    masked: false
+    environment_scope: "production"
+
 environments:
 
-  - name: "all"
+  - name: "*"
     protected: false
     masked: false
     variables:
