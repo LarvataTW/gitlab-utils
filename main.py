@@ -8,18 +8,11 @@ if __name__ == "__main__":
 
     gl_base_url = os.environ['GITLAB_BASE_URL']
     gl_setting_file = os.environ['GITLAB_SETTING_FILE']
-    gl_job_token = os.environ['CI_JOB_TOKEN']
+    gl_private_token = os.environ['GITLAB_PRIVATE_TOKEN']
     gl_project_id = os.environ['CI_PROJECT_ID']
     gl_ci_project_dir = os.environ['CI_PROJECT_DIR']
 
-
-    print('---------')
-    print(gl_base_url)
-    print(gl_job_token)
-    print(gl_project_id)
-    print('---------')
-
-    gl = gitlab.Gitlab(gl_base_url, job_token=gl_job_token)
+    gl = gitlab.Gitlab(gl_base_url, private_token=gl_private_token)
     project = gl.projects.get(gl_project_id)
 
     # 從 ENV 取得 Gitlab Project 參數與授權
