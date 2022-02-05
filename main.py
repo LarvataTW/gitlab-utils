@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import gitlab
+import yaml
 import os
 
 if __name__ == "__main__":
