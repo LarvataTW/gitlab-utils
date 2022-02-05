@@ -12,11 +12,8 @@ if __name__ == "__main__":
     gl_project_id = os.environ['CI_PROJECT_ID']
     gl_ci_project_dir = os.environ['CI_PROJECT_DIR']
 
-    try:
-        gl = gitlab.Gitlab(gl_base_url, job_token=gl_job_token)
-        project = gl.projects.get(gl_project_id)
-    except Exception as e:
-        raise 'GitLab authentication failed or Project not found.'
+    gl = gitlab.Gitlab(gl_base_url, job_token=gl_job_token)
+    project = gl.projects.get(gl_project_id)
 
     # 從 ENV 取得 Gitlab Project 參數與授權
     # 讀取 yaml 檔案載入要設定的環境變數
