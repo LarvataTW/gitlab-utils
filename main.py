@@ -7,7 +7,7 @@ import os
 if __name__ == "__main__":
 
     try:
-        gl = gitlab.Gitlab(os.environ['GITLAB_URL'], private_token=os.environ['GITLAB_PRIVATE_TOKEN'])
+        gl = gitlab.Gitlab(os.environ['GITLAB_BASE_URL'], job_token=os.environ['GITLAB_JOB_TOKEN'])
         project = gl.projects.get(os.environ['GITLAB_PROJECT_ID'])
     except Exception as e:
         raise 'GitLab authentication failed or Project not found.'
