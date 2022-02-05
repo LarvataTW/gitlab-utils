@@ -15,6 +15,10 @@ if __name__ == "__main__":
     gl = gitlab.Gitlab(gl_base_url, job_token=gl_job_token)
     project = gl.projects.get(gl_project_id)
 
+    print(gl_base_url)
+    print(gl_job_token)
+    print(gl_project_id)
+
     # 從 ENV 取得 Gitlab Project 參數與授權
     # 讀取 yaml 檔案載入要設定的環境變數
     yaml_file = "%s/%s" % (gl_ci_project_dir, gl_setting_file)
