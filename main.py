@@ -6,15 +6,21 @@ import os
 
 if __name__ == "__main__":
 
+    gl_base_url = os.environ['GITLAB_BASE_URL']
+    gl_setting_file = os.environ['GITLAB_SETTING_FILE']
+    gl_job_token = os.environ['CI_JOB_TOKEN']
+    gl_project_id = os.environ['CI_PROJECT_ID']
+    gl_ci_project_dir = os.environ['CI_PROJECT_DIR']
+
     try:
-        gl = gitlab.Gitlab(os.environ['GITLAB_BASE_URL'], job_token=os.environ['GITLAB_JOB_TOKEN'])
-        project = gl.projects.get(os.environ['GITLAB_PROJECT_ID'])
+        gl = gitlab.Gitlab(gl_base_url, job_token=gl_job_token)
+        project = gl.projects.get(gl_project_id)
     except Exception as e:
         raise 'GitLab authentication failed or Project not found.'
 
     # 從 ENV 取得 Gitlab Project 參數與授權
     # 讀取 yaml 檔案載入要設定的環境變數
-    yaml_file = os.environ['GITLAB_SETTING_FILE']
+    yaml_file = "%s/%s" % (gl_ci_project_dir, gl_setting_file)
     with open(yaml_file, 'r') as stream:
         try:
             yaml_settings = yaml.safe_load(stream)
