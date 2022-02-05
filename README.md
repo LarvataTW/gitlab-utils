@@ -4,10 +4,11 @@ Run some Gitlab maintaince jobs via CI/CD.
 
 ## Config
 
-All configuration values are in shell environment.
+Essential configuration should set with shell environment variables:
 
 ```
 GITLAB_BASE_URL
+GITLAB_PRIVATE_TOKEN
 GITLAB_SETTING_FILE (.gitlab/settings.yaml)
 ```
 
