@@ -2,10 +2,7 @@
 
 import gitlab
 import yaml
-import pprint
 import os
-
-pp = pprint.PrettyPrinter(indent=4)
 
 if __name__ == "__main__":
 
