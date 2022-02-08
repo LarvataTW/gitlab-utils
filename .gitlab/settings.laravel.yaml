@@ -9,21 +9,20 @@ environments:
       - K8S_SECRET_APP_DEBUG: false
       - K8S_SECRET_APP_KEY: base64:秘密
       - K8S_SECRET_APP_NAME: Test
+      - K8S_SECRET_APP_ENV: value
       - K8S_SECRET_APP_URL: http://test
       - K8S_SECRET_LOG_CHANNEL: daily
       - K8S_SECRET_LOG_LEVEL: debug
       - K8S_SECRET_QUEUE_CONNECTION: database
-
-  - name: "production"
-    protected: false
-    masked: false
-    variables:
       - K8S_SECRET_AUTH_CODE_HASH_SALT: '秘密'
       - K8S_SECRET_HASH_SALT: '秘密'
-
-  - name: "review/develop"
-    protected: false
-    masked: false
-    variables:
-      - K8S_SECRET_APP_DEBUG: true
-      - K8S_SECRET_HASH_SALT: test
+      - K8S_SECRET_REDIS_HOST: value
+      - K8S_SECRET_REDIS_PASSWORD: value
+      - K8S_SECRET_REDIS_PORT: 6379
+      - K8S_SECRET_SESSION_DRIVER: value
+      - K8S_SECRET_SESSION_LIFETIME: value
+      - K8S_SECRET_QUEUE_CONNECTION: value
+      - K8S_SECRET_MEDIA_DISK: value
+      - K8S_SECRET_FILESYSTEM_DRIVER: value
+      - K8S_SECRET_CACHE_DRIVER: value
+      - K8S_SECRET_BROADCAST_DRIVER: value
