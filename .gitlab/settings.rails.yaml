@@ -4,19 +4,27 @@ environments:
     protected: false
     masked: false
     variables:
-      - DB_INITIALIZE: ???
-      - DB_MIGRATE: ???
-      - K8S_SECRET_APP_DEBUG: false
-      - K8S_SECRET_APP_KEY: 秘密
-      
+      - DB_MIGRATE: RAILS_ENV=production bin/rails db:migrate
+      - K8S_SECRET_MAIL_RECEIVER: value
+
   - name: "production"
     protected: false
     masked: false
     variables:
-      - key: value
+      - DATABASE_URL: vlaue
+      - K8S_SECRET_MAIL_DOMAIN: value
+      - K8S_SECRET_MAIL_PASSWORD: value
+      - K8S_SECRET_MAIL_PORT: value
+      - K8S_SECRET_MAIL_SENDER: value
+      - K8S_SECRET_MAIL_SERVER: value
 
   - name: "review/develop"
     protected: false
     masked: false
     variables:
-      - key: value
+      - DATABASE_URL: value
+      - K8S_SECRET_MAIL_DOMAIN: value
+      - K8S_SECRET_MAIL_PASSWORD: value
+      - K8S_SECRET_MAIL_PORT: value
+      - K8S_SECRET_MAIL_SENDER: value
+      - K8S_SECRET_MAIL_SERVER: value
