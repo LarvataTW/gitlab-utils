@@ -1,0 +1,27 @@
+environments:
+
+  - name: "*"
+    protected: false
+    masked: false
+    variables:
+      - DB_INITIALIZE: php artisan migrate --force && php artisan db:seed --force
+      - DB_MIGRATE: php artisan migrate --force && php artisan db:seed --force
+      - K8S_SECRET_APP_DEBUG: false
+      - K8S_SECRET_APP_KEY: base64:秘密
+      - K8S_SECRET_APP_NAME: Test
+      - K8S_SECRET_LOG_CHANNEL: daily
+      - K8S_SECRET_QUEUE_CONNECTION: database
+
+  - name: "production"
+    protected: false
+    masked: false
+    variables:
+      - K8S_SECRET_AUTH_CODE_HASH_SALT: '秘密'
+      - K8S_SECRET_HASH_SALT: '秘密'
+
+  - name: "review/develop"
+    protected: false
+    masked: false
+    variables:
+      - K8S_SECRET_APP_DEBUG: true
+      - K8S_SECRET_HASH_SALT: test
