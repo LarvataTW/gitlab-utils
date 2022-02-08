@@ -1,0 +1,22 @@
+environments:
+
+  - name: "*"
+    protected: false
+    masked: false
+    variables:
+      - DB_INITIALIZE: ???
+      - DB_MIGRATE: ???
+      - K8S_SECRET_APP_DEBUG: false
+      - K8S_SECRET_APP_KEY: 秘密
+      
+  - name: "production"
+    protected: false
+    masked: false
+    variables:
+      - key: value
+
+  - name: "review/develop"
+    protected: false
+    masked: false
+    variables:
+      - key: value
