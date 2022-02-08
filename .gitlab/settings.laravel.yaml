@@ -9,7 +9,9 @@ environments:
       - K8S_SECRET_APP_DEBUG: false
       - K8S_SECRET_APP_KEY: base64:秘密
       - K8S_SECRET_APP_NAME: Test
+      - K8S_SECRET_APP_URL: http://test
       - K8S_SECRET_LOG_CHANNEL: daily
+      - K8S_SECRET_LOG_LEVEL: debug
       - K8S_SECRET_QUEUE_CONNECTION: database
 
   - name: "production"
