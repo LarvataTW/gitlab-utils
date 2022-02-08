@@ -11,15 +11,20 @@ environments:
     protected: false
     masked: false
     variables:
-      - key1: value1
-      - key2: value2
+      - CODE_QUALITY_DISABLED: true
+      - CODE_INTELLIGENCE_DISABLED: true
+      - PERFORMANCE_DISABLED: true
+      - SAST_DISABLED: true
+      - SECRET_DETECTION_DISABLED: true
+      - TEST_DISABLED: true
+      - MARIA_ENABLED: false
 
   - name: "production"
     protected: false
     masked: false
     variables:
-      - key1: value1
-      - key2: value2
+      - ADDITIONAL_HOSTS: value1
+      - DATABASE_URL: mysql2://value
       - key3: value3
       - key4: value4
 
@@ -27,7 +32,7 @@ environments:
     protected: false
     masked: false
     variables:
-      - key1: value1
-      - key2: value2
+      - ADDITIONAL_HOSTS: develop_value1
+      - DATABASE_URL: value2
       - key3: value3
       - key4: value4
