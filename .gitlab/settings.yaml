@@ -5,6 +5,18 @@ clean_up_image_tags:
   rotate: 7 days
   mini: 3
 
+deploy_tokens:
+
+  - name: gitlab-deploy-token
+    scopes:
+      - read_registry
+
+  - name: foo
+    username: bar
+    scopes:
+      - read_repository
+      - read_registry
+
 environments:
 
   - name: "*"
