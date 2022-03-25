@@ -8,11 +8,14 @@ clean_up_image_tags:
 deploy_tokens:
 
   - name: gitlab-deploy-token
+    username: ''
+    expires_at: ''
     scopes:
       - read_registry
 
   - name: foo
     username: bar
+    expires_at: ''
     scopes:
       - read_repository
       - read_registry

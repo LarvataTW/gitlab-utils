@@ -24,6 +24,16 @@ if __name__ == "__main__":
         except yaml.YAMLError as e:
             raise e
 
+    # 建立 Deploy Tokens
+    for deploy_token in yaml_settings['deploy_tokens']:
+        _token = project.deploytokens.create({
+            'name': deploy_token['name'],
+            'scopes': deploy_token['scopes'],
+            'username': deploy_token['username'],
+            'expires_at': deploy_token['expires_at']
+        })
+        print("Deploy Token [%s] | Name: %s | Value: %s" % (_token.id, _token.name, _token.token))
+
     # 將 settings.yaml 內的環境變數結構重組
     # 改成配合 Gitlab library object 的結構
     # 為何不一開始就設計成 Gitlab library object 的結構？
