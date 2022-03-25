@@ -1,13 +1,12 @@
 # gitlab-utils
 
-Run some Gitlab maintaince jobs via CI/CD.
+Run some Gitlab project level maintaince jobs via Gitlab CI/CD.
 
 ## Config
 
-Essential configuration should set with shell environment variables:
+Essential Gitlab CI/CD Variables:
 
 ```
-GITLAB_BASE_URL
 GITLAB_PRIVATE_TOKEN
 GITLAB_SETTING_FILE (.gitlab/settings.yaml)
 ```

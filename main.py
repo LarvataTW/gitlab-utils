@@ -6,9 +6,9 @@ import os
 
 if __name__ == "__main__":
 
-    gl_base_url = os.environ['GITLAB_BASE_URL']
     gl_setting_file = os.environ['GITLAB_SETTING_FILE']
     gl_private_token = os.environ['GITLAB_PRIVATE_TOKEN']
+    gl_base_url = os.environ['CI_SERVER_URL']
     gl_project_id = os.environ['CI_PROJECT_ID']
     gl_ci_project_dir = os.environ['CI_PROJECT_DIR']
 
