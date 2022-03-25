@@ -56,4 +56,4 @@ if __name__ == "__main__":
             print(e)
 
     for project_var in project.variables.list():
-        print("[%s] Key: %s, Value: %s" % (project_var.environment_scope, project_var.key, project_var.value))
+        print("[%s] Key: %s" % (project_var.environment_scope, project_var.key))
