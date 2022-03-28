@@ -7,7 +7,7 @@ import os
 if __name__ == "__main__":
 
     gl_private_token = os.environ['GITLAB_PRIVATE_TOKEN']
-    gl_base_url = os.environ['CI_SERVER_URL']
+    gl_base_url = os.environ['GITLAB_SERVER_URL']
 
     gl = gitlab.Gitlab(gl_base_url, private_token=gl_private_token)
 
@@ -36,3 +36,21 @@ if __name__ == "__main__":
 
     with open('result.yml', 'w') as output:
         yaml.dump(result, output, default_flow_style=False)
+
+    ###
+
+    dist_gl_private_token = os.environ['DIST_GITLAB_PRIVATE_TOKEN']
+    dist_gl_base_url = os.environ['DIST_GITLAB_SERVER_URL']
+
+    dist_gl = gitlab.Gitlab(dist_gl_base_url, private_token=dist_gl_private_token)
+
+    with open(r'result.yaml') as file:
+        input = yaml.load(file, Loader=yaml.FullLoader)
+
+    for group in input['groups']:
+        try:
+            g = dist_gl.groups.create({'name': group['name'], 'path': group['path']})
+            for project in group['projects']:
+                dist_gl.projects.create({'namespace_id': g.id, 'name': project['name'], 'path': project['path']})
+        except Exception as e:
+            print(e)
