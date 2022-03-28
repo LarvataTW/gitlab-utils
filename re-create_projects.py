@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
     dist_gl = gitlab.Gitlab(dist_gl_base_url, private_token=dist_gl_private_token)
 
-    with open(r'result.yaml') as file:
+    with open(r'result.yml') as file:
         input = yaml.load(file, Loader=yaml.FullLoader)
 
     for group in input['groups']:
