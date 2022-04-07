@@ -36,6 +36,7 @@ environments:
       - SAST_DISABLED: true
       - SECRET_DETECTION_DISABLED: true
       - TEST_DISABLED: true
+      - POSTGRES_ENABLED: false
       - MARIA_ENABLED: false
       - REDIS_ENABLED: true
       - ADDITIONAL_HOSTS: "your.ingress.domain"
