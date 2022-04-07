@@ -26,8 +26,12 @@ environments:
     protected: false
     masked: false
     variables:
+      - BROWSER_PERFORMANCE_DISABLED: true
       - CODE_QUALITY_DISABLED: true
       - CODE_INTELLIGENCE_DISABLED: true
+      - DAST_DISABLED: true
+      - DEPENDENCY_SCANNING_DISABLED: true
+      - LOAD_PERFORMANCE_DISABLED: true
       - PERFORMANCE_DISABLED: true
       - SAST_DISABLED: true
       - SECRET_DETECTION_DISABLED: true
