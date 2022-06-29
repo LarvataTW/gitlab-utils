@@ -27,20 +27,32 @@ environments:
     masked: false
     variables:
       - BROWSER_PERFORMANCE_DISABLED: true
-      - CODE_QUALITY_DISABLED: true
       - CODE_INTELLIGENCE_DISABLED: true
+      - CODE_QUALITY_DISABLED: true
+      - CONTAINER_SCANNING_DISABLED: true
       - DAST_DISABLED: true
       - DEPENDENCY_SCANNING_DISABLED: true
+      - LICENSE_MANAGEMENT_DISABLED: true
       - LOAD_PERFORMANCE_DISABLED: true
       - PERFORMANCE_DISABLED: true
+      - REVIEW_DISABLED: true
       - SAST_DISABLED: true
       - SECRET_DETECTION_DISABLED: true
       - TEST_DISABLED: true
+      - STAGING_ENABLED: ''
       - POSTGRES_ENABLED: false
       - MARIA_ENABLED: false
-      - REDIS_ENABLED: true
+      - REDIS_ENABLED: false
       - ADDITIONAL_HOSTS: "your.ingress.domain"
+      - DB_INITIALIZE: php artisan migrate --force && php artisan db:seed --force
+      - DB_MIGRATE: php artisan migrate --force
       - DATABASE_URL: "mysql2://youre_db_username:your_db_password@your.db.host:3306/your_db_name"
+      - DATABASE_NAME: foobar
+      - DATABASE_USERNAME: test
+      - DATABASE_PASSWORD: 12345678
+      - DATABASE_PORT: 3306
+      - DATABASE_HOST: 1.2.3.4
+      - REDIS_URL: redis://172.17.0.1:6379
 
   - name: "example-for-rails-app"
     protected: false
